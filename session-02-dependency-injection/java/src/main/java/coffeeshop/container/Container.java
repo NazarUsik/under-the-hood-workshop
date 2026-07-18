@@ -43,8 +43,8 @@ public class Container {
 
         // Recursively resolve all constructor parameters (Step 2: graph walk)
         var params = Arrays.stream(constructor.getParameterTypes())
-                .map(this::resolve)
-                .toArray();
+            .map(this::resolve)
+            .toArray();
 
         try {
             // Step 4: Instantiate with resolved dependencies

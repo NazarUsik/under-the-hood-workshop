@@ -51,17 +51,22 @@ java -cp target/classes coffeeshop.container.ContainerDemo
 - **`InMemoryOrderRepository.java`** - Annotated `@Repository`. Spring finds this during component scanning and registers it as the bean for `OrderRepository`.
 - **`OrderService.java`** - Takes `OrderRepository` via constructor. No `@Autowired` needed: since Spring 4.3, a single constructor is auto-wired implicitly.
 - **`OrderController.java`** - Takes `OrderService` via constructor. The full chain is wired by Spring: Controller -> Service -> Repository.
-- **`container/Container.java`** - A minimal DI container that does what Spring does: register types, walk the dependency graph via reflection, detect circular dependencies, and create instances in the right order.
+- **`container/Container.java`** - A minimal DI container that does what Spring does: register types, walk the dependency graph via reflection, detect circular dependencies, and
+  create instances in the right order.
 
 ## Spring Deep Dive
 
 ### BeanFactory vs ApplicationContext
 
-Spring has two container interfaces. `BeanFactory` is the base: it lazily creates beans on first request. `ApplicationContext` extends it with eager initialization, event publishing, environment abstraction, and internationalization. In practice, you always use `ApplicationContext` (via `SpringApplication.run()`), but understanding `BeanFactory` helps you see that the core is just a registry + factory.
+Spring has two container interfaces. `BeanFactory` is the base: it lazily creates beans on first request. `ApplicationContext` extends it with eager initialization, event
+publishing, environment abstraction, and internationalization. In practice, you always use `ApplicationContext` (via `SpringApplication.run()`), but understanding `BeanFactory`
+helps you see that the core is just a registry + factory.
 
 ### How Component Scanning Works
 
-When `@SpringBootApplication` starts, it triggers `@ComponentScan` on the package where the main class lives. Spring uses ASM (a bytecode library) to read class metadata without loading classes into the JVM. It finds every class annotated with `@Component` (or meta-annotations like `@Service`, `@Repository`, `@Controller`), creates a `BeanDefinition` for each, and registers them in the `BeanFactory`.
+When `@SpringBootApplication` starts, it triggers `@ComponentScan` on the package where the main class lives. Spring uses ASM (a bytecode library) to read class metadata without
+loading classes into the JVM. It finds every class annotated with `@Component` (or meta-annotations like `@Service`, `@Repository`, `@Controller`), creates a `BeanDefinition` for
+each, and registers them in the `BeanFactory`.
 
 This is why your `@Service` must be in the same package (or a sub-package) as your `@SpringBootApplication`. If it's outside the scan path, Spring doesn't know it exists.
 
@@ -70,13 +75,16 @@ This is why your `@Service` must be in the same package (or a sub-package) as yo
 When you have two beans of the same type:
 
 ```java
+
 @Repository
 @Primary
-public class InMemoryOrderRepository implements OrderRepository { ... }
+public class InMemoryOrderRepository implements OrderRepository { ...
+}
 
 @Repository
 @Qualifier("postgres")
-public class PostgresOrderRepository implements OrderRepository { ... }
+public class PostgresOrderRepository implements OrderRepository { ...
+}
 ```
 
 - `@Primary` makes `InMemoryOrderRepository` the default. Any constructor asking for `OrderRepository` gets this one.
@@ -97,7 +105,9 @@ Spring beans aren't just created and injected. They go through a lifecycle:
 
 ### Auto-Configuration
 
-Spring Boot's "magic" comes from `spring-boot-autoconfigure`. It ships hundreds of `@Configuration` classes guarded by `@ConditionalOnClass`, `@ConditionalOnMissingBean`, etc. When you add `spring-boot-starter-web` to your classpath, Spring Boot detects Tomcat on the classpath and auto-configures an embedded web server. You didn't write a single line of server config. That's auto-configuration: conditional bean registration based on what's on the classpath.
+Spring Boot's "magic" comes from `spring-boot-autoconfigure`. It ships hundreds of `@Configuration` classes guarded by `@ConditionalOnClass`, `@ConditionalOnMissingBean`, etc. When
+you add `spring-boot-starter-web` to your classpath, Spring Boot detects Tomcat on the classpath and auto-configures an embedded web server. You didn't write a single line of
+server config. That's auto-configuration: conditional bean registration based on what's on the classpath.
 
 ## Exercises
 
