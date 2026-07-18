@@ -9,9 +9,9 @@ import java.util.Optional;
 public class InMemoryOrderRepository implements OrderRepository {
 
     private final List<Order> orders = List.of(
-            new Order(1, "Latte", "ready"),
-            new Order(2, "Espresso", "preparing"),
-            new Order(3, "Cappuccino", "pending")
+        new Order(1, "Latte", "ready"),
+        new Order(2, "Espresso", "preparing"),
+        new Order(3, "Cappuccino", "pending")
     );
 
     @Override
@@ -22,7 +22,7 @@ public class InMemoryOrderRepository implements OrderRepository {
     @Override
     public Optional<Order> findById(int id) {
         return orders.stream()
-                .filter(order -> order.id() == id)
-                .findFirst();
+            .filter(order -> order.id() == id)
+            .findFirst();
     }
 }

@@ -3,8 +3,8 @@ Demonstrates the custom DI container wiring the same classes that FastAPI's Depe
 Run directly: python -m container.demo
 """
 
-import sys
 import os
+import sys
 
 # Add parent directory to path so we can import order package
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))

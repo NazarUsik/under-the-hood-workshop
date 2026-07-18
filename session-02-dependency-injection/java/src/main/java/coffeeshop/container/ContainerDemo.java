@@ -7,7 +7,7 @@ import coffeeshop.order.OrderService;
 /**
  * Demonstrates the custom DI container wiring the same classes that Spring wires.
  * Run this directly: it doesn't need Spring Boot.
- *
+ * <p>
  * java -cp target/classes coffeeshop.container.ContainerDemo
  */
 public class ContainerDemo {
@@ -24,7 +24,7 @@ public class ContainerDemo {
 
         System.out.println("Orders from custom DI container:");
         service.listOrders().forEach(order ->
-                System.out.printf("  #%d %s (%s)%n", order.id(), order.drink(), order.status())
+            System.out.printf("  #%d %s (%s)%n", order.id(), order.drink(), order.status())
         );
     }
 }
