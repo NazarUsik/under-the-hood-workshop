@@ -1,15 +1,15 @@
 import {Module} from "@nestjs/common";
 import {OrderController} from "./order.controller";
 import {OrderService} from "./order.service";
-import {InMemoryOrderRepository, OrderRepository} from "./order.repository";
+import {OrderRepository} from "./order.repository";
+import {PostgresOrderRepository} from "./postgres-order.repository";
 
 @Module({
     controllers: [OrderController],
     providers: [
         OrderService,
-        // This is NestJS DI: provide OrderRepository, use InMemoryOrderRepository as the implementation.
-        // To swap implementations, just change useClass here. No other code changes needed.
-        {provide: OrderRepository, useClass: InMemoryOrderRepository},
+        // Exercise 3: Swapped to PostgresOrderRepository. Just changed useClass, nothing else.
+        {provide: OrderRepository, useClass: PostgresOrderRepository},
     ],
 })
 export class OrderModule {

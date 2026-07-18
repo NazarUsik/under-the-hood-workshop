@@ -28,7 +28,7 @@ public class OrderController {
     @GetMapping("/{id}")
     public ResponseEntity<Order> getOrder(@PathVariable int id) {
         return orderService.findOrder(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+            .map(ResponseEntity::ok)
+            .orElse(ResponseEntity.notFound().build());
     }
 }
