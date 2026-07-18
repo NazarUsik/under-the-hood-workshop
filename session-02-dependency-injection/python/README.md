@@ -44,14 +44,16 @@ python -m container.demo
 
 ## What to Look At
 
-- **`order/repository.py`** - An ABC (abstract base class) defining the interface + an `InMemoryOrderRepository` implementation. This is what gets swapped in tests or with a real database.
+- **`order/repository.py`** - An ABC (abstract base class) defining the interface + an `InMemoryOrderRepository` implementation. This is what gets swapped in tests or with a real
+  database.
 - **`order/service.py`** - Takes `OrderRepository` in its constructor. Pure Python, no framework dependency. Testable in isolation.
-- **`main.py`** - Factory functions (`get_order_repository`, `get_order_service`) + `Depends()`. FastAPI calls the factory, resolves the chain, and passes the result to your route handler.
+- **`main.py`** - Factory functions (`get_order_repository`, `get_order_service`) + `Depends()`. FastAPI calls the factory, resolves the chain, and passes the result to your route
+  handler.
 - **`container/container.py`** - A minimal DI container using `inspect.signature()` to read constructor type hints and resolve dependencies automatically.
 
 ## FastAPI Deep Dive
 
-### How Depends() Chains Work
+### How Depends () Chains Work
 
 `Depends()` takes a callable (usually a function) and calls it to get the dependency. When your factory has its own `Depends()` parameters, FastAPI resolves them first:
 
@@ -59,8 +61,10 @@ python -m container.demo
 def get_repo() -> OrderRepository:
     return InMemoryOrderRepository()
 
+
 def get_service(repo: OrderRepository = Depends(get_repo)) -> OrderService:
     return OrderService(repo)
+
 
 @app.get("/orders")
 def list_orders(service: OrderService = Depends(get_service)):
@@ -71,7 +75,8 @@ FastAPI walks this chain bottom-up: `get_repo()` -> `get_service(repo)` -> `list
 
 ### yield Dependencies (Resource Cleanup)
 
-`Depends()` supports generator functions with `yield`. Code before `yield` runs at request start, code after runs at request end. This is how you manage resources like database sessions:
+`Depends()` supports generator functions with `yield`. Code before `yield` runs at request start, code after runs at request end. This is how you manage resources like database
+sessions:
 
 ```python
 def get_db():
@@ -91,6 +96,7 @@ By default, FastAPI calls the factory function on every request. That makes depe
 ```python
 _repo = InMemoryOrderRepository()  # created once at module load
 
+
 def get_order_repository() -> OrderRepository:
     return _repo  # same instance every request
 ```
@@ -99,7 +105,8 @@ This is a manual version of what Spring does with `@Scope("singleton")` vs `@Sco
 
 ### FastAPI DI vs dependency-injector
 
-FastAPI's `Depends()` is lightweight and function-based. For larger projects, the [dependency-injector](https://python-dependency-injector.ets-labs.org/) library provides a more traditional container with singletons, factories, configuration injection, and wiring. It's closer to Spring's model but uses Python's type system.
+FastAPI's `Depends()` is lightweight and function-based. For larger projects, the [dependency-injector](https://python-dependency-injector.ets-labs.org/) library provides a more
+traditional container with singletons, factories, configuration injection, and wiring. It's closer to Spring's model but uses Python's type system.
 
 ## Exercises
 
