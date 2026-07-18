@@ -1,0 +1,28 @@
+# Java
+target/
+*.class
+*.jar
+.idea/
+*.iml
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+
+# TypeScript / Node
+node_modules/
+dist/
+.next/
+
+# Go
+bin/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Diagrams (keep source, ignore exports unless committed)
+*.drawio.bkp
