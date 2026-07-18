@@ -18,4 +18,23 @@ public class OrderController {
             new Order(3, "Cappuccino")
         );
     }
+
+    // Exercise 2: GET /menu - just one annotation and a return statement.
+    // Compare this to the library version.
+    @GetMapping("/menu")
+    public List<MenuItem> listMenu() {
+        return List.of(
+            new MenuItem(1, "Latte", 4.50),
+            new MenuItem(2, "Espresso", 3.00),
+            new MenuItem(3, "Cappuccino", 4.00),
+            new MenuItem(4, "Americano", 3.50)
+        );
+    }
+
+    // Exercise 4: Throw an exception. Spring returns a clean 500 JSON error
+    // with timestamp, status, error, and path. No crash.
+    @GetMapping("/error")
+    public String simulateError() {
+        throw new RuntimeException("Something went wrong!");
+    }
 }
