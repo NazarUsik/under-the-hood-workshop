@@ -13,4 +13,11 @@ export class OrderController {
             {id: 3, drink: "Cappuccino"},
         ];
     }
+
+    // Exercise 4: Throw an error. NestJS returns a clean JSON error response
+    // with {"statusCode": 500, "message": "Internal server error"}. No crash.
+    @Get("error")
+    simulateError(): string {
+        throw new Error("Something went wrong!");
+    }
 }
