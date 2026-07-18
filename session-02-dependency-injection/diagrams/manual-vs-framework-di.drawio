@@ -1,0 +1,126 @@
+<mxfile host="Electron">
+  <diagram name="Manual vs Framework DI" id="manual-vs-fw-di">
+    <mxGraphModel dx="885" dy="559" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="bg" parent="1" style="whiteSpace=wrap;html=1;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="420" width="700" x="40" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="title-manual" parent="1" style="text;html=1;fontSize=18;fontStyle=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontColor=#333333;" value="Manual DI" vertex="1">
+          <mxGeometry height="30" width="280" x="70" y="15" as="geometry" />
+        </mxCell>
+        <mxCell id="title-fw" parent="1" style="text;html=1;fontSize=18;fontStyle=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontColor=#333333;" value="Framework DI" vertex="1">
+          <mxGeometry height="30" width="280" x="430" y="15" as="geometry" />
+        </mxCell>
+        <mxCell id="manual-container" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;fontStyle=1;strokeWidth=2;verticalAlign=top;spacingTop=5;arcSize=6;dashed=1;dashPattern=8 4;" value="" vertex="1">
+          <mxGeometry height="360" width="300" x="60" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fw-container" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;fontStyle=1;strokeWidth=2;verticalAlign=top;spacingTop=5;arcSize=6;dashed=1;dashPattern=8 4;" value="" vertex="1">
+          <mxGeometry height="360" width="300" x="420" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="m-main" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;fontStyle=1;strokeWidth=2;" value="main()&lt;br&gt;&lt;i style=&quot;font-size:10px;font-weight:normal&quot;&gt;YOU create and wire everything&lt;/i&gt;" vertex="1">
+          <mxGeometry height="50" width="220" x="100" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="m-repo" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;strokeWidth=2;" value="OrderRepository" vertex="1">
+          <mxGeometry height="40" width="180" x="120" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="m-service" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;strokeWidth=2;" value="OrderService" vertex="1">
+          <mxGeometry height="40" width="180" x="120" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="m-controller" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;strokeWidth=2;" value="OrderController" vertex="1">
+          <mxGeometry height="40" width="180" x="120" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="m-new1" edge="1" parent="1" source="m-main" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#b85450;flowAnimation=1;" target="m-repo">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m-new1-label" connectable="0" parent="m-new1" style="edgeLabel;html=1;fontSize=10;fontColor=#b85450;labelBackgroundColor=light-dark(#f5f5f5, #ededed);" value="new" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-10" y="-20" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m-new2" edge="1" parent="1" source="m-main" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#b85450;flowAnimation=1;" target="m-service">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="90" y="95" />
+              <mxPoint x="90" y="250" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m-new2-label" connectable="0" parent="m-new2" style="edgeLabel;html=1;fontSize=10;fontColor=#b85450;labelBackgroundColor=light-dark(#f5f5f5, #ededed);" value="new(repo)" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint y="17" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m-new3" edge="1" parent="1" source="m-main" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#b85450;flowAnimation=1;" target="m-controller">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="80" y="95" />
+              <mxPoint x="80" y="320" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m-new3-label" connectable="0" parent="m-new3" style="edgeLabel;html=1;fontSize=10;fontColor=#b85450;labelBackgroundColor=#F5F5F5;" value="new(svc)" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint y="63" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m-note" parent="1" style="text;html=1;fontSize=11;fontStyle=2;align=center;fontColor=#b85450;whiteSpace=wrap;" value="You wire it. You own every &amp;quot;new&amp;quot;." vertex="1">
+          <mxGeometry height="20" width="220" x="100" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="fw-injector" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;fontStyle=1;strokeWidth=2;" value="DI Container&lt;br&gt;&lt;i style=&quot;font-size:10px;font-weight:normal&quot;&gt;Spring / FastAPI / NestJS&lt;/i&gt;" vertex="1">
+          <mxGeometry height="50" width="220" x="460" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="fw-repo" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;strokeWidth=2;" value="OrderRepository" vertex="1">
+          <mxGeometry height="40" width="180" x="480" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="fw-service" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;strokeWidth=2;" value="OrderService" vertex="1">
+          <mxGeometry height="40" width="180" x="480" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="fw-controller" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;strokeWidth=2;" value="OrderController" vertex="1">
+          <mxGeometry height="40" width="180" x="480" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="fw-w1" edge="1" parent="1" source="fw-injector" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#9673a6;flowAnimation=1;" target="fw-repo">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fw-w1-label" connectable="0" parent="fw-w1" style="edgeLabel;html=1;fontSize=10;fontColor=#9673a6;labelBackgroundColor=light-dark(#f5f5f5, #ededed);" value="creates" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-20" y="-20" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fw-w2" edge="1" parent="1" source="fw-injector" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#9673a6;flowAnimation=1;" target="fw-service">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="450" y="95" />
+              <mxPoint x="450" y="250" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fw-w2-label" connectable="0" parent="fw-w2" style="edgeLabel;html=1;fontSize=10;fontColor=#9673a6;labelBackgroundColor=none;" value="injects repo" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint y="17" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fw-w3" edge="1" parent="1" source="fw-injector" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#9673a6;flowAnimation=1;" target="fw-controller">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="440" y="95" />
+              <mxPoint x="440" y="320" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fw-w3-label" connectable="0" parent="fw-w3" style="edgeLabel;html=1;fontSize=10;fontColor=#9673a6;labelBackgroundColor=none;" value="injects svc" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint y="52" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fw-note" parent="1" style="text;html=1;fontSize=11;fontStyle=2;align=center;fontColor=#9673a6;whiteSpace=wrap;" value="Framework wires it. You declare what you need." vertex="1">
+          <mxGeometry height="20" width="250" x="440" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="vs-label" parent="1" style="text;html=1;fontSize=22;fontStyle=1;align=center;verticalAlign=middle;fontColor=#666666;" value="vs" vertex="1">
+          <mxGeometry height="40" width="40" x="370" y="210" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

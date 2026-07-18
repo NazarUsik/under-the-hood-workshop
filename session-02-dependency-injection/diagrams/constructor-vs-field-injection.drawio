@@ -1,0 +1,58 @@
+<mxfile host="Electron">
+  <diagram name="Constructor vs Field Injection" id="ctor-vs-field">
+    <mxGraphModel dx="1039" dy="657" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="bg" parent="1" style="whiteSpace=wrap;html=1;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="380" width="700" x="40" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="title-ctor" parent="1" style="text;html=1;fontSize=18;fontStyle=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontColor=#333333;" value="Constructor Injection &#x2705;" vertex="1">
+          <mxGeometry height="30" width="280" x="70" y="15" as="geometry" />
+        </mxCell>
+        <mxCell id="title-field" parent="1" style="text;html=1;fontSize=18;fontStyle=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontColor=#333333;" value="Field Injection &#x26A0;&#xFE0F;" vertex="1">
+          <mxGeometry height="30" width="280" x="430" y="15" as="geometry" />
+        </mxCell>
+        <mxCell id="ctor-container" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;strokeWidth=2;verticalAlign=top;spacingTop=5;arcSize=6;" value="" vertex="1">
+          <mxGeometry height="320" width="300" x="60" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="field-container" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1;strokeWidth=2;verticalAlign=top;spacingTop=5;arcSize=6;" value="" vertex="1">
+          <mxGeometry height="320" width="300" x="420" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ctor-class" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;strokeWidth=2;align=left;spacingLeft=10;" value="OrderService&lt;br&gt;&lt;hr&gt;&lt;span style=&quot;font-size:10px;font-weight:normal&quot;&gt;- final OrderRepository repo&lt;br&gt;&lt;br&gt;+ OrderService(repo)  &amp;larr; injected here&lt;/span&gt;" vertex="1">
+          <mxGeometry height="100" width="240" x="90" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ctor-pro1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;strokeWidth=1;" value="&#x2705; Fields are final (immutable)" vertex="1">
+          <mxGeometry height="30" width="240" x="90" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="ctor-pro2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;strokeWidth=1;" value="&#x2705; Testable without framework" vertex="1">
+          <mxGeometry height="30" width="240" x="90" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="ctor-pro3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;strokeWidth=1;" value="&#x2705; Dependencies explicit in constructor" vertex="1">
+          <mxGeometry height="30" width="240" x="90" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="ctor-pro4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;strokeWidth=1;" value="&#x2705; Fail fast: missing dep = compile error" vertex="1">
+          <mxGeometry height="30" width="240" x="90" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="field-class" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;strokeWidth=2;align=left;spacingLeft=10;" value="OrderService&lt;br&gt;&lt;hr&gt;&lt;span style=&quot;font-size:10px;font-weight:normal&quot;&gt;@Autowired&lt;br&gt;- OrderRepository repo  &amp;larr; set via reflection&lt;/span&gt;" vertex="1">
+          <mxGeometry height="100" width="240" x="450" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="field-con1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;strokeWidth=1;" value="&#x274C; Can't be final (mutable)" vertex="1">
+          <mxGeometry height="30" width="240" x="450" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="field-con2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;strokeWidth=1;" value="&#x274C; Needs framework to inject mocks" vertex="1">
+          <mxGeometry height="30" width="240" x="450" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="field-con3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;strokeWidth=1;" value="&#x274C; Hidden deps (scattered across fields)" vertex="1">
+          <mxGeometry height="30" width="240" x="450" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="field-con4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;strokeWidth=1;" value="&#x274C; Null at construction time" vertex="1">
+          <mxGeometry height="30" width="240" x="450" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="vs-label" parent="1" style="text;html=1;fontSize=22;fontStyle=1;align=center;verticalAlign=middle;fontColor=#666666;" value="vs" vertex="1">
+          <mxGeometry height="40" width="40" x="370" y="180" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

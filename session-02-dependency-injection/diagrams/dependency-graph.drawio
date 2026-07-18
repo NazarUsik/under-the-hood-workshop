@@ -1,0 +1,116 @@
+<mxfile host="Electron">
+  <diagram name="Dependency Graph and Topological Sort" id="dep-graph">
+    <mxGraphModel dx="1258" dy="795" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="bg" parent="1" style="whiteSpace=wrap;html=1;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="510" width="840" x="30" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="title" parent="1" style="text;html=1;fontSize=20;fontStyle=1;align=center;verticalAlign=middle;fontColor=#333333;" value="How a DI Container Resolves Dependencies" vertex="1">
+          <mxGeometry height="30" width="500" x="190" y="15" as="geometry" />
+        </mxCell>
+        <mxCell id="step1-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;fontStyle=1;strokeWidth=2;verticalAlign=top;spacingTop=5;arcSize=8;" value="Step 1: Scan &amp;amp; Register" vertex="1">
+          <mxGeometry height="100" width="370" x="50" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="scan-repo" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;strokeWidth=2;" value="@Repository&lt;br&gt;&lt;b&gt;OrderRepository&lt;/b&gt;" vertex="1">
+          <mxGeometry height="40" width="100" x="70" y="95" as="geometry" />
+        </mxCell>
+        <mxCell id="scan-svc" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;strokeWidth=2;" value="@Service&lt;br&gt;&lt;b&gt;OrderService&lt;/b&gt;" vertex="1">
+          <mxGeometry height="40" width="100" x="185" y="95" as="geometry" />
+        </mxCell>
+        <mxCell id="scan-ctrl" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;strokeWidth=2;" value="@Controller&lt;br&gt;&lt;b&gt;OrderController&lt;/b&gt;" vertex="1">
+          <mxGeometry height="40" width="110" x="300" y="95" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-1-2" parent="1" style="shape=mxgraph.arrows2.arrow;dy=0.6;dx=20;notch=0;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="16" width="50" x="425" y="119" as="geometry" />
+        </mxCell>
+        <mxCell id="step2-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;strokeWidth=2;verticalAlign=top;spacingTop=5;arcSize=8;" value="Step 2: Build Dependency Graph (DAG)" vertex="1">
+          <mxGeometry height="100" width="350" x="480" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="dag-ctrl" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;fontStyle=1;strokeWidth=2;" value="OrderController" vertex="1">
+          <mxGeometry height="25" width="120" x="595" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="dag-svc" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;fontStyle=1;strokeWidth=2;" value="OrderService" vertex="1">
+          <mxGeometry height="25" width="120" x="500" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="dag-repo" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;fontStyle=1;strokeWidth=2;" value="OrderRepository" vertex="1">
+          <mxGeometry height="25" width="120" x="700" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="dag-edge1" edge="1" parent="1" source="dag-ctrl" style="rounded=1;strokeWidth=2;strokeColor=#b85450;flowAnimation=1;" target="dag-svc">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dag-edge1-label" connectable="0" parent="dag-edge1" style="edgeLabel;html=1;fontSize=9;fontColor=#b85450;labelBackgroundColor=none;" value="needs" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="5" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dag-edge2" edge="1" parent="1" source="dag-svc" style="rounded=1;strokeWidth=2;strokeColor=#b85450;flowAnimation=1;" target="dag-repo">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dag-edge2-label" connectable="0" parent="dag-edge2" style="edgeLabel;html=1;fontSize=9;fontColor=#b85450;labelBackgroundColor=none;" value="needs" vertex="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-10" y="-8" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mid-arrow" parent="1" style="shape=mxgraph.arrows2.arrow;dy=0.67;dx=20;notch=0;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;rotation=90;" value="" vertex="1">
+          <mxGeometry height="16" width="50" x="425" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="step3-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;fontStyle=1;strokeWidth=2;verticalAlign=top;spacingTop=5;arcSize=8;dashed=1;dashPattern=8 4;" value="Step 3: Detect Circular Dependencies" vertex="1">
+          <mxGeometry height="110" width="370" x="50" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="cycle-a" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#CC0000;fontSize=11;fontStyle=1;strokeWidth=2;" value="OrderService" vertex="1">
+          <mxGeometry height="40" width="120" x="80" y="255" as="geometry" />
+        </mxCell>
+        <mxCell id="cycle-b" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#CC0000;fontSize=11;fontStyle=1;strokeWidth=2;" value="NotificationService" vertex="1">
+          <mxGeometry height="40" width="130" x="270" y="255" as="geometry" />
+        </mxCell>
+        <mxCell id="cycle-edge1" edge="1" parent="1" source="cycle-a" style="rounded=1;strokeWidth=2;strokeColor=#CC0000;flowAnimation=1;curved=1;" target="cycle-b">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cycle-edge2" edge="1" parent="1" source="cycle-b" style="rounded=1;strokeWidth=2;strokeColor=#CC0000;flowAnimation=1;curved=1;" target="cycle-a">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cycle-x" parent="1" style="text;html=1;fontSize=24;fontStyle=1;align=center;fontColor=#CC0000;" value="❌" vertex="1">
+          <mxGeometry height="30" width="30" x="220" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="cycle-label" parent="1" style="text;html=1;fontSize=10;fontStyle=2;align=center;fontColor=#CC0000;" value="Cycle detected! Startup fails." vertex="1">
+          <mxGeometry height="15" width="200" x="130" y="298" as="geometry" />
+        </mxCell>
+        <mxCell id="step4-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;strokeWidth=2;verticalAlign=top;spacingTop=5;arcSize=8;" value="Step 4: Topological Sort &amp;amp; Instantiate" vertex="1">
+          <mxGeometry height="170" width="370" x="480" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="topo-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1;strokeWidth=2;" value="① OrderRepository (0 deps)" vertex="1">
+          <mxGeometry height="25" width="290" x="520" y="245" as="geometry" />
+        </mxCell>
+        <mxCell id="topo-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1;strokeWidth=2;" value="② OrderService (repo ✅)" vertex="1">
+          <mxGeometry height="25" width="290" x="520" y="295" as="geometry" />
+        </mxCell>
+        <mxCell id="topo-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1;strokeWidth=2;" value="③ OrderController (svc ✅)" vertex="1">
+          <mxGeometry height="25" width="290" x="520" y="345" as="geometry" />
+        </mxCell>
+        <mxCell id="topo-wire1" edge="1" parent="1" source="topo-1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#82b366;flowAnimation=1;" target="topo-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="topo-wire2" edge="1" parent="1" source="topo-2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#82b366;flowAnimation=1;" target="topo-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-3-4" parent="1" style="shape=mxgraph.arrows2.arrow;dy=0.6;dx=20;notch=0;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="16" width="50" x="425" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="result-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontStyle=1;strokeWidth=3;arcSize=8;" value="✅ All beans created and wired. Application ready." vertex="1">
+          <mxGeometry height="50" width="780" x="50" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="result-arrow-left" edge="1" parent="1" source="step3-box" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#82b366;flowAnimation=1;dashed=1;" target="result-box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="result-arrow-right" edge="1" parent="1" source="step4-box" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#82b366;flowAnimation=1;dashed=1;" target="result-box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="result-note" parent="1" style="text;html=1;fontSize=11;fontStyle=2;align=center;fontColor=#82b366;" value="No cycles? Topological sort succeeds. Every bean gets its dependencies injected via constructor." vertex="1">
+          <mxGeometry height="20" width="600" x="140" y="475" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
