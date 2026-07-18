@@ -1,0 +1,90 @@
+<mxfile host="Electron">
+  <diagram name="Hollywood Principle" id="hollywood">
+    <mxGraphModel dx="1039" dy="554" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="IHoCee6hyIqqMKG3PIk7-4" parent="1" style="whiteSpace=wrap;html=1;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="350" width="800" x="20" as="geometry" />
+        </mxCell>
+        <mxCell id="title" parent="1" style="text;html=1;fontSize=20;fontStyle=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontColor=#333333;" value="The Hollywood Principle" vertex="1">
+          <mxGeometry height="30" width="240" x="280" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" parent="1" style="text;html=1;fontSize=13;fontStyle=2;align=center;fontColor=#666;whiteSpace=wrap;" value="&amp;ldquo;Don&#39;t call us. We&#39;ll call you.&amp;rdquo;" vertex="1">
+          <mxGeometry height="25" width="180" x="310" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="hw-container" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=14;fontStyle=1;strokeWidth=2;verticalAlign=top;spacingTop=8;arcSize=6;dashed=1;dashPattern=8 4;" value="Hollywood Analogy" vertex="1">
+          <mxGeometry height="200" width="340" x="40" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="sw-container" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=14;fontStyle=1;strokeWidth=2;verticalAlign=top;spacingTop=8;arcSize=6;dashed=1;dashPattern=8 4;" value="Software Equivalent" vertex="1">
+          <mxGeometry height="200" width="380" x="420" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hw-arrow-1" edge="1" parent="1" source="IHoCee6hyIqqMKG3PIk7-2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=3;strokeColor=#9673a6;flowAnimation=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="160" y="155" as="sourcePoint" />
+            <mxPoint x="260" y="155" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hw-label-1" connectable="0" parent="hw-arrow-1" style="edgeLabel;html=1;fontSize=10;fontStyle=1;fontColor=#9673a6;labelBackgroundColor=none;" value="We&#39;ll call you" vertex="1">
+          <mxGeometry relative="1" x="-0.1" as="geometry">
+            <mxPoint x="-35" y="-5" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hw-arrow-2" edge="1" parent="1" source="IHoCee6hyIqqMKG3PIk7-1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#b85450;dashed=1;dashPattern=8 4;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="IHoCee6hyIqqMKG3PIk7-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="300" y="250.03" />
+              <mxPoint x="120" y="250.03" />
+            </Array>
+            <mxPoint x="300.03703703703695" y="190" as="sourcePoint" />
+            <mxPoint x="119.97560975609758" y="190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hw-label-2" connectable="0" parent="hw-arrow-2" style="edgeLabel;html=1;fontSize=10;fontStyle=1;fontColor=#CC0000;labelBackgroundColor=none;" value="Don&#39;t call us ✗" vertex="1">
+          <mxGeometry relative="1" x="-0.1" as="geometry">
+            <mxPoint x="-55" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="framework-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;fontStyle=1;strokeWidth=2;" value="Framework&lt;br&gt;&lt;i style=&quot;font-size:10px;font-weight:normal&quot;&gt;owns main(), routing, lifecycle&lt;/i&gt;" vertex="1">
+          <mxGeometry height="60" width="150" x="440" y="125" as="geometry" />
+        </mxCell>
+        <mxCell id="handler-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;fontStyle=1;strokeWidth=2;" value="Your Handler&lt;br&gt;&lt;i style=&quot;font-size:10px;font-weight:normal&quot;&gt;business logic only&lt;/i&gt;" vertex="1">
+          <mxGeometry height="60" width="140" x="640" y="125" as="geometry" />
+        </mxCell>
+        <mxCell id="sw-arrow-1" edge="1" parent="1" source="framework-box" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=3;strokeColor=#9673a6;flowAnimation=1;" target="handler-box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sw-label-1" connectable="0" parent="sw-arrow-1" style="edgeLabel;html=1;fontSize=10;fontStyle=1;fontColor=#9673a6;labelBackgroundColor=none;" value="Calls you" vertex="1">
+          <mxGeometry relative="1" x="-0.1" as="geometry">
+            <mxPoint x="-22" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sw-arrow-2" edge="1" parent="1" source="handler-box" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#b85450;dashed=1;dashPattern=8 4;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="framework-box">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="710" y="250" />
+              <mxPoint x="515.02" y="250" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sw-label-2" connectable="0" parent="sw-arrow-2" style="edgeLabel;html=1;fontSize=10;fontStyle=1;fontColor=#CC0000;labelBackgroundColor=none;" value="You don&#39;t call the framework ✗" vertex="1">
+          <mxGeometry relative="1" x="-0.1" as="geometry">
+            <mxPoint x="-94" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="equals" parent="1" style="text;html=1;fontSize=20;fontStyle=1;align=center;verticalAlign=middle;fontColor=#666666;" value="=" vertex="1">
+          <mxGeometry height="40" width="40" x="380" y="135" as="geometry" />
+        </mxCell>
+        <mxCell id="result-lib" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;fontStyle=1;strokeWidth=2;" value="IoC = Inversion of Control" vertex="1">
+          <mxGeometry height="35" width="240" x="280" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="IHoCee6hyIqqMKG3PIk7-1" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;fillColor=#f8cecc;strokeColor=#b85450;" value="&lt;span style=&quot;font-weight: 700;&quot;&gt;Actor&lt;/span&gt;" vertex="1">
+          <mxGeometry height="80" width="80" x="260" y="115" as="geometry" />
+        </mxCell>
+        <mxCell id="IHoCee6hyIqqMKG3PIk7-2" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="&lt;span style=&quot;font-weight: 700;&quot;&gt;Casting&lt;/span&gt;&lt;br style=&quot;font-weight: 700;&quot;&gt;&lt;span style=&quot;font-weight: 700;&quot;&gt;Director&lt;/span&gt;" vertex="1">
+          <mxGeometry height="80" width="80" x="80" y="115" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

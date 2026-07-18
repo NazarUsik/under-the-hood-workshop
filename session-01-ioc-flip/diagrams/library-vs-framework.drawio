@@ -1,0 +1,81 @@
+<mxfile host="Electron">
+  <diagram name="Library vs Framework" id="lib-vs-fw">
+    <mxGraphModel dx="1039" dy="657" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="-YE_zqPuDZ0NfnA-vHMo-1" parent="1" style="whiteSpace=wrap;html=1;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="360" width="660" x="60" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="title-lib" parent="1" style="text;html=1;fontSize=18;fontStyle=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontColor=#333333;" value="Library Pattern" vertex="1">
+          <mxGeometry height="30" width="280" x="80" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="title-fw" parent="1" style="text;html=1;fontSize=18;fontStyle=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontColor=#333333;" value="Framework Pattern" vertex="1">
+          <mxGeometry height="30" width="280" x="420" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="lib-container" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;fontStyle=1;strokeWidth=2;verticalAlign=top;spacingTop=5;arcSize=6;dashed=1;dashPattern=8 4;" value="" vertex="1">
+          <mxGeometry height="300" width="280" x="80" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="fw-container" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;fontStyle=1;strokeWidth=2;verticalAlign=top;spacingTop=5;arcSize=6;dashed=1;dashPattern=8 4;" value="" vertex="1">
+          <mxGeometry height="300" width="280" x="420" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="your-code-lib" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;fontStyle=1;strokeWidth=2;" value="Your Code&lt;br&gt;&lt;i style=&quot;font-size:10px;font-weight:normal&quot;&gt;main(), server setup, routing&lt;/i&gt;" vertex="1">
+          <mxGeometry height="60" width="200" x="120" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="library" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;fontStyle=1;strokeWidth=2;" value="Library&lt;br&gt;&lt;i style=&quot;font-size:10px;font-weight:normal&quot;&gt;requests, axios, net/http&lt;/i&gt;" vertex="1">
+          <mxGeometry height="60" width="200" x="120" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="lib-arrow" edge="1" parent="1" source="your-code-lib" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=3;strokeColor=#b85450;flowAnimation=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="library">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lib-arrow-label" connectable="0" parent="lib-arrow" style="edgeLabel;html=1;fontSize=12;fontStyle=1;fontColor=#b85450;labelBackgroundColor=none;" value="YOU call it" vertex="1">
+          <mxGeometry relative="1" x="-0.1" as="geometry">
+            <mxPoint x="-70" y="-16" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lib-result" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=0;strokeWidth=2;" value="Result" vertex="1">
+          <mxGeometry height="40" width="80" x="180" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="lib-return" edge="1" parent="1" source="library" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#d6b656;dashed=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="lib-result">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="340" y="230" />
+              <mxPoint x="340" y="300" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lib-control" parent="1" style="text;html=1;fontSize=11;fontStyle=2;align=center;fontColor=#b85450;whiteSpace=wrap;" value="You control the flow" vertex="1">
+          <mxGeometry height="20" width="200" x="120" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="framework" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;fontStyle=1;strokeWidth=2;" value="Framework&lt;br&gt;&lt;i style=&quot;font-size:10px;font-weight:normal&quot;&gt;FastAPI, NestJS, Spring, Gin&lt;/i&gt;" vertex="1">
+          <mxGeometry height="60" width="200" x="460" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="your-code-fw" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;fontStyle=1;strokeWidth=2;" value="Your Handler&lt;br&gt;&lt;i style=&quot;font-size:10px;font-weight:normal&quot;&gt;@GetMapping, @app.get, @Get()&lt;/i&gt;" vertex="1">
+          <mxGeometry height="60" width="200" x="460" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="fw-arrow" edge="1" parent="1" source="framework" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=3;strokeColor=#9673a6;flowAnimation=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="your-code-fw">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fw-arrow-label" connectable="0" parent="fw-arrow" style="edgeLabel;html=1;fontSize=12;fontStyle=1;fontColor=#9673a6;labelBackgroundColor=none;" value="IT calls you" vertex="1">
+          <mxGeometry relative="1" x="-0.1" as="geometry">
+            <mxPoint y="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fw-request" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=0;strokeWidth=2;" value="HTTP Request" vertex="1">
+          <mxGeometry height="40" width="80" x="520" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="fw-req-arrow" edge="1" parent="1" source="fw-request" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#d6b656;flowAnimation=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="framework">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="520" y="190" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fw-control" parent="1" style="text;html=1;fontSize=11;fontStyle=2;align=center;fontColor=#9673a6;whiteSpace=wrap;" value="Framework controls the flow" vertex="1">
+          <mxGeometry height="20" width="200" x="460" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="vs-label" parent="1" style="text;html=1;fontSize=22;fontStyle=1;align=center;verticalAlign=middle;fontColor=#666666;" value="vs" vertex="1">
+          <mxGeometry height="40" width="40" x="370" y="180" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
