@@ -287,6 +287,8 @@ Each language subfolder has two runnable projects: a `library/` version and a `f
 
 The goal: feel the difference in control. Notice where you write *less* code with a framework, and think about what the framework is doing for you behind the scenes.
 
+> **Want to check your work?** Each language README links to a solution branch where all exercises are already implemented.
+
 ## Key Takeaways
 
 - **IoC is not a feature. It's a design principle.** The framework calls your code, not the other way around.

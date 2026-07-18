@@ -12,6 +12,16 @@ __pycache__/
 venv/
 .env
 
+# Agent / AI
+.agents/
+.claude/
+.cursor/
+.cline/
+.windsurf/
+.devin/
+AGENTS.md
+CLAUDE.md
+
 # TypeScript / Node
 node_modules/
 dist/
