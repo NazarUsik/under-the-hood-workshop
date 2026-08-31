@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
 
 // When chaos profile is active, this wraps the ChaosKitchenService with resilience layers.
-// The proxy chain: Fallback -> Timeout -> ChaosKitchenService
+// The proxy chain: Fallback -> Retry -> CircuitBreaker -> Timeout -> ChaosKitchenService
 @Configuration
 @Profile("chaos")
 public class ResilienceConfig {
@@ -15,8 +15,10 @@ public class ResilienceConfig {
     @Bean
     @Primary
     public KitchenService resilientKitchenService(KitchenService chaosKitchenService) {
-        // Wrap chaos service with timeout (3 seconds), then fallback
+        // Full resilience stack (Exercise 5):
         KitchenService withTimeout = new TimeoutKitchenService(chaosKitchenService, 3000);
-        return new FallbackKitchenService(withTimeout);
+        KitchenService withCircuitBreaker = new CircuitBreakerKitchenService(withTimeout, 3, 10000);
+        KitchenService withRetry = new RetryKitchenService(withCircuitBreaker, 3, 1000);
+        return new FallbackKitchenService(withRetry);
     }
 }
