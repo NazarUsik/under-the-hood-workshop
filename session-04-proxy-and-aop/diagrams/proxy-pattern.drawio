@@ -1,0 +1,52 @@
+<mxfile host="Electron">
+  <diagram id="CM3TgiZsYJ33hJI3FbQZ" name="Page-1">
+    <mxGraphModel dx="885" dy="472" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="KmwNbrWWUTXfUV0kFCV_-1" parent="1" style="whiteSpace=wrap;html=1;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="310" width="590" x="90" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="title" parent="1" style="text;html=1;fontSize=18;align=center;verticalAlign=middle;" value="&lt;b&gt;The Proxy Pattern&lt;/b&gt;" vertex="1">
+          <mxGeometry height="40" width="300" x="235" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="caller" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=13;" value="&lt;b&gt;Caller&lt;/b&gt;&lt;br&gt;(Controller)" vertex="1">
+          <mxGeometry height="60" width="140" x="150" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="iface" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;" value="&lt;b&gt;&amp;lt;&amp;lt;interface&amp;gt;&amp;gt;&lt;/b&gt;&lt;br&gt;OrderService" vertex="1">
+          <mxGeometry height="60" width="180" x="350" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="proxy" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;" value="&lt;b&gt;Proxy&lt;/b&gt;&lt;br&gt;LoggingOrderService" vertex="1">
+          <mxGeometry height="60" width="180" x="220" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="real" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;" value="&lt;b&gt;Real Object&lt;/b&gt;&lt;br&gt;OrderServiceImpl" vertex="1">
+          <mxGeometry height="60" width="180" x="480" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="before-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="&lt;i&gt;before: log &quot;listOrders called&quot;&lt;/i&gt;" vertex="1">
+          <mxGeometry height="35" width="220" x="110" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="after-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="&lt;i&gt;after: log &quot;returned 3 orders in 5ms&quot;&lt;/i&gt;" vertex="1">
+          <mxGeometry height="35" width="220" x="290" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="caller" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#666666;strokeWidth=2;flowAnimation=1;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" target="proxy" value="calls">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="proxy" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#9673a6;strokeWidth=2;flowAnimation=1;" target="real" value="delegates">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="proxy" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#d6b656;strokeWidth=1;dashed=1;endArrow=block;endFill=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" target="iface" value="implements">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="real" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#d6b656;strokeWidth=1;dashed=1;endArrow=block;endFill=0;" target="iface" value="implements">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="proxy" style="strokeColor=#82b366;strokeWidth=1;dashed=1;endArrow=none;" target="before-box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="proxy" style="strokeColor=#82b366;strokeWidth=1;dashed=1;endArrow=none;" target="after-box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
