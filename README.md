@@ -120,7 +120,9 @@ proves the whole thing holds together. Every modern framework you use does exact
 
 ## Contributing
 
-Found a bug? Have a suggestion? Want to add an example in another language?
+Found a bug? Have a suggestion? Want to add an example in another language? See the full [Contributing Guide](CONTRIBUTING.md).
+
+The short version:
 
 1. Open an [issue](https://github.com/NazarUsik/under-the-hood-workshop/issues) describing what you'd like to change.
 2. Fork the repo and create a branch from `main`.
@@ -128,6 +130,14 @@ Found a bug? Have a suggestion? Want to add an example in another language?
 4. Submit a pull request with a clear description.
 
 All contributions are welcome, whether it's fixing a typo, improving an explanation, or adding a new exercise.
+
+**Have a question or want to discuss a topic?** Start a [Discussion](https://github.com/NazarUsik/under-the-hood-workshop/discussions).
+
+## Community
+
+- [Code of Conduct](CODE_OF_CONDUCT.md) - be kind, we're all here to learn
+- [Security Policy](.github/SECURITY.md) - reporting vulnerabilities
+- [Issue Templates](.github/ISSUE_TEMPLATE/) - bug reports, content improvements, questions
 
 ## License
 
