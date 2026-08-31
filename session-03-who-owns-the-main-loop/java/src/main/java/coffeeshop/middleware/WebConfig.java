@@ -10,13 +10,16 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class WebConfig implements WebMvcConfigurer {
 
     private final TimingInterceptor timingInterceptor;
+    private final AuthInterceptor authInterceptor;
 
-    public WebConfig(TimingInterceptor timingInterceptor) {
+    public WebConfig(TimingInterceptor timingInterceptor, AuthInterceptor authInterceptor) {
         this.timingInterceptor = timingInterceptor;
+        this.authInterceptor = authInterceptor;
     }
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(authInterceptor).addPathPatterns("/**");
         registry.addInterceptor(timingInterceptor).addPathPatterns("/**");
     }
 }
