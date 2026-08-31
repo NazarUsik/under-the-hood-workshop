@@ -1,4 +1,5 @@
 import time
+import uuid
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, Request, HTTPException, Depends
@@ -28,8 +29,29 @@ app = FastAPI(lifespan=lifespan)
 
 
 # --- ASGI Middleware ---
-# This runs for every request. call_next passes control to the next middleware or handler.
-# The "before" code runs before your route handler, the "after" code runs after.
+# Exercise 2: Request ID middleware. Generates a UUID and adds it to response headers.
+# Registered second = outermost (FastAPI reversal).
+@app.middleware("http")
+async def request_id_middleware(request: Request, call_next):
+    request_id = str(uuid.uuid4())
+    print(f"[RequestId] {request_id}")
+    response = await call_next(request)
+    response.headers["X-Request-Id"] = request_id
+    return response
+
+
+# Exercise 3: Auth middleware. Checks for Authorization header.
+@app.middleware("http")
+async def auth_middleware(request: Request, call_next):
+    auth = request.headers.get("Authorization")
+    if auth is None:
+        print("[Auth] Missing Authorization header, returning 401")
+        return JSONResponse(status_code=401, content={"error": "Unauthorized"})
+    print(f"[Auth] Authorized: {auth}")
+    return await call_next(request)
+
+
+# Logging middleware. call_next passes control to the next middleware or handler.
 @app.middleware("http")
 async def logging_middleware(request: Request, call_next):
     start = time.time()
