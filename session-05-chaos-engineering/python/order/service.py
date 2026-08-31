@@ -1,8 +1,7 @@
-from typing import Optional
-
+from kitchen.service import KitchenService, Preparation
 from order.model import Order
 from order.repository import OrderRepository
-from kitchen.service import KitchenService, Preparation
+from typing import Optional
 
 
 class OrderService:

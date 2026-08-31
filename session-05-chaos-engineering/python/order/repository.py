@@ -1,7 +1,6 @@
 from abc import ABC, abstractmethod
-from typing import Optional
-
 from order.model import Order
+from typing import Optional
 
 
 class OrderRepository(ABC):

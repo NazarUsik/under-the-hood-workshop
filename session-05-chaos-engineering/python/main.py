@@ -1,16 +1,14 @@
 import os
-
-from fastapi import FastAPI, Depends, HTTPException
 from dataclasses import asdict
+from fastapi import FastAPI, Depends, HTTPException
 
-from order.model import Order
-from order.repository import InMemoryOrderRepository, OrderRepository
-from order.service import OrderService
+from kitchen.service import KitchenService, RealKitchenService, ChaosKitchenService
 from menu.repository import InMemoryMenuRepository, MenuRepository
 from menu.service import MenuService
-from kitchen.service import KitchenService, RealKitchenService, ChaosKitchenService
-from resilience.timeout import TimeoutKitchenService
+from order.repository import InMemoryOrderRepository, OrderRepository
+from order.service import OrderService
 from resilience.fallback import FallbackKitchenService
+from resilience.timeout import TimeoutKitchenService
 
 app = FastAPI()
 
@@ -33,8 +31,8 @@ def get_kitchen_service() -> KitchenService:
 
 
 def get_order_service(
-    repo: OrderRepository = Depends(get_order_repository),
-    kitchen: KitchenService = Depends(get_kitchen_service),
+        repo: OrderRepository = Depends(get_order_repository),
+        kitchen: KitchenService = Depends(get_kitchen_service),
 ) -> OrderService:
     return OrderService(repo, kitchen)
 

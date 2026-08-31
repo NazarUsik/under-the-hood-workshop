@@ -31,12 +31,14 @@ python/
 ## How to Run
 
 **Normal mode** (everything works):
+
 ```bash
 pip install -r requirements.txt
 python main.py
 ```
 
 **Chaos mode** (random failures):
+
 ```bash
 CHAOS_MODE=true python main.py
 ```
