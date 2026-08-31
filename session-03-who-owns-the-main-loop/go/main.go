@@ -32,9 +32,10 @@ func main() {
 	// --- Build the middleware pipeline ---
 	r := gin.New() // gin.New() gives us a bare router (no default middleware)
 	r.Use(middleware.RecoveryMiddleware())
+	r.Use(middleware.RequestIDMiddleware())
 	r.Use(middleware.LoggingMiddleware())
-	// Middleware order: Recovery first (outermost), then Logging.
-	// Recovery needs to be outermost so it catches panics from any layer.
+	r.Use(middleware.AuthMiddleware())
+	// Middleware order: Recovery (outermost) -> RequestID -> Logging -> Auth -> Handler.
 
 	// --- Routes ---
 	r.GET("/orders", orderHandler.ListOrders)
