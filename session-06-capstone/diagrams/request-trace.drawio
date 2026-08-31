@@ -1,0 +1,83 @@
+<mxfile host="Electron">
+  <diagram id="capstone-trace" name="Page-1">
+    <mxGraphModel dx="1086" dy="579" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="3W8Z5ga_XhScMcw5ZaOF-1" parent="1" style="whiteSpace=wrap;html=1;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="440" width="780" x="10" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="title" parent="1" style="text;html=1;fontSize=16;align=center;verticalAlign=middle;" value="&lt;b&gt;Trace-Based Testing: X-Ray the Request&lt;/b&gt;" vertex="1">
+          <mxGeometry height="40" width="500" x="150" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="trace-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#82b366;strokeWidth=2;dashed=1;arcSize=9;" value="" vertex="1">
+          <mxGeometry height="370" width="350" x="30" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="t1" parent="1" style="text;html=1;fontSize=11;align=left;fillColor=#f5f5f5;strokeColor=#666666;rounded=1;spacingLeft=5;" value="1. middleware:request:POST /orders/1/prepare" vertex="1">
+          <mxGeometry height="25" width="320" x="45" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="t2" parent="1" style="text;html=1;fontSize=11;align=left;fillColor=#e1d5e7;strokeColor=#9673a6;rounded=1;spacingLeft=5;" value="2. logging:before:OrderService.placeOrder" vertex="1">
+          <mxGeometry height="25" width="320" x="45" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="t3" parent="1" style="text;html=1;fontSize=11;align=left;fillColor=#e1d5e7;strokeColor=#9673a6;rounded=1;spacingLeft=5;" value="3. timing:start:placeOrder" vertex="1">
+          <mxGeometry height="25" width="320" x="45" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="t4" parent="1" style="text;html=1;fontSize=11;align=left;fillColor=#dae8fc;strokeColor=#6c8ebf;rounded=1;spacingLeft=5;" value="4. service:OrderService.placeOrder:orderId=1" vertex="1">
+          <mxGeometry height="25" width="320" x="45" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="t5" parent="1" style="text;html=1;fontSize=11;align=left;fillColor=#fff2cc;strokeColor=#d6b656;rounded=1;spacingLeft=5;" value="5. resilience:retry:attempt=1" vertex="1">
+          <mxGeometry height="25" width="320" x="45" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="t6" parent="1" style="text;html=1;fontSize=11;align=left;fillColor=#f8cecc;strokeColor=#b85450;rounded=1;spacingLeft=5;" value="6. kitchen:prepare:orderId=1:TIMEOUT" vertex="1">
+          <mxGeometry height="25" width="320" x="45" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="t7" parent="1" style="text;html=1;fontSize=11;align=left;fillColor=#fff2cc;strokeColor=#d6b656;rounded=1;spacingLeft=5;" value="7. resilience:retry:attempt=2" vertex="1">
+          <mxGeometry height="25" width="320" x="45" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="t8" parent="1" style="text;html=1;fontSize=11;align=left;fillColor=#d5e8d4;strokeColor=#82b366;rounded=1;spacingLeft=5;" value="8. kitchen:prepare:orderId=1:SUCCESS" vertex="1">
+          <mxGeometry height="25" width="320" x="45" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="t9" parent="1" style="text;html=1;fontSize=11;align=left;fillColor=#e1d5e7;strokeColor=#9673a6;rounded=1;spacingLeft=5;" value="9. timing:end:placeOrder:duration=3412ms" vertex="1">
+          <mxGeometry height="25" width="320" x="45" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="t10" parent="1" style="text;html=1;fontSize=11;align=left;fillColor=#e1d5e7;strokeColor=#9673a6;rounded=1;spacingLeft=5;" value="10. logging:after:OrderService.placeOrder" vertex="1">
+          <mxGeometry height="25" width="320" x="45" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="t11" parent="1" style="text;html=1;fontSize=11;align=left;fillColor=#f5f5f5;strokeColor=#666666;rounded=1;spacingLeft=5;" value="11. middleware:response:200 OK:3415ms" vertex="1">
+          <mxGeometry height="25" width="320" x="45" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="assert-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#82b366;strokeWidth=3;" value="" vertex="1">
+          <mxGeometry height="280" width="200" x="570" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="assert-title" parent="1" style="text;html=1;fontSize=13;fontColor=#82b366;align=center;verticalAlign=middle;" value="&lt;b&gt;Test Assertions&lt;/b&gt;" vertex="1">
+          <mxGeometry height="25" width="200" x="570" y="115" as="geometry" />
+        </mxCell>
+        <mxCell id="a1" parent="1" style="text;html=1;fontSize=11;align=left;spacingLeft=5;" value="✅ logging:before &amp;lt; timing:start&lt;br&gt;&lt;i&gt;Proxy chain order correct&lt;/i&gt;" vertex="1">
+          <mxGeometry height="35" width="180" x="580" y="145" as="geometry" />
+        </mxCell>
+        <mxCell id="a2" parent="1" style="text;html=1;fontSize=11;align=left;spacingLeft=5;" value="✅ timing:start &amp;lt; service:*&lt;br&gt;&lt;i&gt;Timing wraps service call&lt;/i&gt;" vertex="1">
+          <mxGeometry height="35" width="180" x="580" y="185" as="geometry" />
+        </mxCell>
+        <mxCell id="a3" parent="1" style="text;html=1;fontSize=11;align=left;spacingLeft=5;" value="✅ trace contains resilience:retry&lt;br&gt;&lt;i&gt;Retry actually happened&lt;/i&gt;" vertex="1">
+          <mxGeometry height="35" width="180" x="580" y="225" as="geometry" />
+        </mxCell>
+        <mxCell id="a4" parent="1" style="text;html=1;fontSize=11;align=left;spacingLeft=5;" value="✅ middleware:request is first&lt;br&gt;&lt;i&gt;Middleware fires first&lt;/i&gt;" vertex="1">
+          <mxGeometry height="35" width="180" x="580" y="265" as="geometry" />
+        </mxCell>
+        <mxCell id="a5" parent="1" style="text;html=1;fontSize=11;align=left;spacingLeft=5;" value="✅ middleware:response is last&lt;br&gt;&lt;i&gt;Full request lifecycle traced&lt;/i&gt;" vertex="1">
+          <mxGeometry height="35" width="180" x="580" y="305" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-reads" edge="1" parent="1" style="strokeColor=#82b366;strokeWidth=2;endArrow=classic;flowAnimation=1;entryX=-0.017;entryY=0.504;entryDx=0;entryDy=0;entryPerimeter=0;" target="assert-box" value="&lt;b&gt;tests read trace&lt;/b&gt;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="380" y="250" as="sourcePoint" />
+            <mxPoint x="420" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="trace-title" parent="1" style="text;html=1;fontSize=12;fontColor=#82b366;align=center;verticalAlign=middle;" value="&lt;b&gt;TraceCollector (recorded steps)&lt;/b&gt;" vertex="1">
+          <mxGeometry height="25" width="250" x="80" y="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

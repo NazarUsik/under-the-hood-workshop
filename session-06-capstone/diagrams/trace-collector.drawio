@@ -1,0 +1,65 @@
+<mxfile host="Electron">
+  <diagram id="trace-collector" name="Page-1">
+    <mxGraphModel dx="1224" dy="439" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="OlDtKhJLy9MbosIR0dnI-1" parent="1" style="whiteSpace=wrap;html=1;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="390" width="670" x="-30" as="geometry" />
+        </mxCell>
+        <mxCell id="title" parent="1" style="text;html=1;fontSize=18;align=center;verticalAlign=middle;" value="&lt;b&gt;TraceCollector: Test-Only X-Ray (AOP + DI)&lt;/b&gt;" vertex="1">
+          <mxGeometry height="40" width="500" x="60" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="prod-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#666666;strokeWidth=2;dashed=1;" value="" vertex="1">
+          <mxGeometry height="130" width="250" x="-10" y="155.5" as="geometry" />
+        </mxCell>
+        <mxCell id="prod-title" parent="1" style="text;html=1;fontSize=12;fontColor=#666666;align=center;verticalAlign=middle;" value="&lt;b&gt;Production Code&lt;/b&gt;" vertex="1">
+          <mxGeometry height="25" width="150" x="40" y="153.5" as="geometry" />
+        </mxCell>
+        <mxCell id="prod-svc" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;" value="OrderService&lt;br&gt;KitchenService&lt;br&gt;FallbackKitchenService&lt;br&gt;..." vertex="1">
+          <mxGeometry height="55" width="200" x="15" y="185.5" as="geometry" />
+        </mxCell>
+        <mxCell id="prod-note" parent="1" style="text;html=1;fontSize=11;fontColor=#666666;fontStyle=1;align=center;verticalAlign=middle;" value="&lt;b&gt;Zero tracing code here&lt;/b&gt;" vertex="1">
+          <mxGeometry height="25" width="200" x="15" y="248.5" as="geometry" />
+        </mxCell>
+        <mxCell id="test-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#82b366;strokeWidth=3;" value="" vertex="1">
+          <mxGeometry height="310" width="300" x="320" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="test-title" parent="1" style="text;html=1;fontSize=12;fontColor=#82b366;align=center;verticalAlign=middle;" value="&lt;b&gt;Test Configuration Only&lt;/b&gt;" vertex="1">
+          <mxGeometry height="25" width="200" x="370" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="aspect" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;strokeWidth=2;" value="&lt;b&gt;TracingAspect&lt;/b&gt;&lt;br&gt;Intercepts all methods from outside&lt;br&gt;collector.add(&quot;before:&quot; + class + &quot;.&quot; + method)" vertex="1">
+          <mxGeometry height="60" width="260" x="340" y="95" as="geometry" />
+        </mxCell>
+        <mxCell id="collector" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" value="&lt;b&gt;TraceCollector&lt;/b&gt;&lt;br&gt;add(step: String)&lt;br&gt;getTrace(): List&amp;lt;String&amp;gt;" vertex="1">
+          <mxGeometry height="55" width="230" x="355" y="192" as="geometry" />
+        </mxCell>
+        <mxCell id="tests" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;strokeWidth=2;" value="&lt;b&gt;Test Assertions&lt;/b&gt;&lt;br&gt;Read trace, verify order,&lt;br&gt;verify chaos resilience" vertex="1">
+          <mxGeometry height="55" width="230" x="355" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="test-note" parent="1" style="text;html=1;fontSize=11;fontColor=#82b366;align=center;" value="&lt;i&gt;None of this exists in production&lt;/i&gt;" vertex="1">
+          <mxGeometry height="25" width="260" x="340" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="ei1" edge="1" parent="1" source="aspect" style="strokeColor=#9673a6;strokeWidth=2;dashed=1;endArrow=classic;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;flowAnimation=1;" target="prod-svc" value="intercepts">
+          <mxGeometry relative="1" x="-0.108" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="280" y="125" />
+              <mxPoint x="280" y="213" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ea1" edge="1" parent="1" source="aspect" style="strokeColor=#82b366;strokeWidth=2;endArrow=classic;" target="collector" value="writes to">
+          <mxGeometry relative="1" x="-0.1892" y="30" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ea2" edge="1" parent="1" source="tests" style="strokeColor=#82b366;strokeWidth=2;endArrow=classic;" target="collector" value="reads">
+          <mxGeometry relative="1" x="-0.3939" y="-20" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
