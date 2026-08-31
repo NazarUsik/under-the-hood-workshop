@@ -49,7 +49,7 @@ Watch the console: you'll see middleware logging before/after every request.
 - **`main.py` lifespan** - `@asynccontextmanager` with `yield`. Everything before `yield` is startup, everything after is shutdown. FastAPI calls this before the server starts
   accepting connections.
 - **`main.py` error handler** - `@app.exception_handler(ValueError)` catches exceptions globally. FastAPI also auto-converts `HTTPException` to the right status code.
-- **`main.py` Depends()** - The DI chain is visible in the route signature. FastAPI resolves the whole dependency tree per request.
+- **`main.py` Depends ()** - The DI chain is visible in the route signature. FastAPI resolves the whole dependency tree per request.
 
 ## FastAPI Request Pipeline Deep Dive
 
@@ -84,6 +84,7 @@ FastAPI/Starlette runs middleware in **reverse registration order**. The last re
 async def middleware_a(request, call_next):  # registered first = innermost
     ...
 
+
 @app.middleware("http")
 async def middleware_b(request, call_next):  # registered second = outermost
     ...
@@ -93,15 +94,15 @@ Request flow: B.before -> A.before -> handler -> A.after -> B.after
 
 This is the opposite of most frameworks. Be careful.
 
-### Depends() as Middleware
+### Depends () as Middleware
 
 FastAPI's `Depends()` is not just DI. It's also middleware. You can use `yield` dependencies for setup/teardown:
 
 ```python
 async def get_db():
-    db = connect()   # setup: before handler
+    db = connect()  # setup: before handler
     yield db
-    db.close()       # teardown: after handler
+    db.close()  # teardown: after handler
 ```
 
 This is the same onion model: code before `yield` runs before the handler, code after `yield` runs after.

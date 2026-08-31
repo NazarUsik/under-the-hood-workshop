@@ -2,6 +2,7 @@ import {NestFactory} from "@nestjs/core";
 import {AppModule} from "./app.module";
 import {TimingInterceptor} from "./middleware/timing.interceptor";
 import {HttpExceptionFilter} from "./middleware/http-exception.filter";
+import {AuthGuard} from "./middleware/auth.guard";
 
 async function bootstrap() {
     const app = await NestFactory.create(AppModule);
@@ -11,6 +12,9 @@ async function bootstrap() {
 
     // Global exception filter: catches HttpExceptions from any controller
     app.useGlobalFilters(new HttpExceptionFilter());
+
+    // Exercise 3: Global auth guard
+    app.useGlobalGuards(new AuthGuard());
 
     // The framework creates the app, wires DI, registers middleware,
     // and starts listening. You just call bootstrap().

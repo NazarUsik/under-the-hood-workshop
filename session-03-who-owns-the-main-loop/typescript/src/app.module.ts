@@ -1,6 +1,7 @@
 import {MiddlewareConsumer, Module, NestModule} from "@nestjs/common";
 import {OrderModule} from "./order/order.module";
 import {MenuModule} from "./menu/menu.module";
+import {RequestIdMiddleware} from "./middleware/request-id.middleware";
 import {LoggingMiddleware} from "./middleware/logging.middleware";
 
 @Module({
@@ -8,8 +9,8 @@ import {LoggingMiddleware} from "./middleware/logging.middleware";
 })
 export class AppModule implements NestModule {
     // NestJS middleware is registered here, per route pattern.
-    // This is where you control the middleware pipeline order.
+    // Order matters: RequestId first, then Logging.
     configure(consumer: MiddlewareConsumer) {
-        consumer.apply(LoggingMiddleware).forRoutes("*");
+        consumer.apply(RequestIdMiddleware, LoggingMiddleware).forRoutes("*");
     }
 }
