@@ -1,6 +1,6 @@
 # Under the Hood: What Frameworks Do When You're Not Looking
 
-> **Six standalone sessions that peel back the layers of modern frameworks, from IoC to Chaos Engineering**
+> **Six standalone sessions that peel back the layers of modern frameworks, from IoC to proving it all works under pressure**
 
 ## The Problem
 
@@ -81,10 +81,10 @@ DI (from Session 2) lets you swap a real dependency for a failable one. Proxies 
 
 > `#capstone` `#e2e` `#observability` `#all-patterns` `#spring` `#fastapi` `#nestjs` `#go`
 
-Some features are invisible by design: security interceptors, auth middleware, logging pipelines. You can't see them, but they'd better work.
+You built proxies, injected chaos, added resilience. But you never *proved* any of it worked. You watched the console and hoped for the best.
 
-This final session connects every pattern from the series into one project. DI to inject tracers, proxies to observe without modifying, chaos to stress without fear. You'll build
-it hands-on.
+This final session adds a TracingAspect: a single class that X-rays every request through every layer, without modifying a single line of existing code. AOP records what happened. DI
+wires the X-ray machine in. Chaos applies the stress. Automated tests read the trace and assert the system held up. All six sessions stop being theory and start working together.
 
 ---
 
@@ -106,3 +106,29 @@ material, run the code, try the exercises. No setup beyond cloning the repo and 
 | **DI**    | Dependency Injection        | You declare what you need, the framework provides it      |
 | **AOP**   | Aspect-Oriented Programming | Apply behavior across many classes without modifying them |
 | **Proxy** | Proxy Pattern               | An object that wraps another to control access to it      |
+
+## The Full Picture
+
+If you've gone through all six sessions, here's the arc:
+
+You started by learning that a framework is just a library turned inside out (Session 1). Then you let the framework wire your dependencies (Session 2) and control your request
+lifecycle (Session 3). You added behavior without touching code via proxies and aspects (Session 4). You broke things on purpose to see if the system could handle it (Session 5).
+And finally, you proved it all works by X-raying a request through every layer under stress (Session 6).
+
+These aren't six separate topics. They're one system: IoC gives control to the framework, DI wires the pieces, proxies add invisible behavior, chaos tests resilience, and tracing
+proves the whole thing holds together. Every modern framework you use does exactly this. Now you know how.
+
+## Contributing
+
+Found a bug? Have a suggestion? Want to add an example in another language?
+
+1. Open an [issue](https://github.com/NazarUsik/under-the-hood-workshop/issues) describing what you'd like to change.
+2. Fork the repo and create a branch from `main`.
+3. Each session is self-contained. Your changes should not break other sessions.
+4. Submit a pull request with a clear description.
+
+All contributions are welcome, whether it's fixing a typo, improving an explanation, or adding a new exercise.
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
