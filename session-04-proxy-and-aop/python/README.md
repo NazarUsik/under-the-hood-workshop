@@ -47,8 +47,10 @@ Watch the console: `[Logging]`, `[Timing]`, and `[Audit]` messages appear even t
 ## What to Look At
 
 - **`order/service.py`** and **`menu/service.py`** - pure business logic. No logging, no timing. Compare them to the console output.
-- **`proxy/decorators.py`** - three decorator functions that ARE proxies. Each takes a function and returns a wrapper. `@wraps(func)` preserves the original function name and docstring.
-- **`main.py` lines 21-23** - this is where decorators are applied to service methods *after* class definition. This is Python's runtime equivalent of Spring's CGLIB proxy creation.
+- **`proxy/decorators.py`** - three decorator functions that ARE proxies. Each takes a function and returns a wrapper. `@wraps(func)` preserves the original function name and
+  docstring.
+- **`main.py` lines 21-23** - this is where decorators are applied to service methods *after* class definition. This is Python's runtime equivalent of Spring's CGLIB proxy
+  creation.
 
 ## Python Decorators as Proxies
 
@@ -59,9 +61,12 @@ A decorator is syntactic sugar for wrapping a function:
 def list_orders():
     ...
 
+
 # is exactly the same as:
 def list_orders():
     ...
+
+
 list_orders = timed(list_orders)
 ```
 
@@ -88,6 +93,7 @@ The outermost decorator (`@logged`) runs first and last, just like `@Order(1)` i
 ### Two Ways to Apply Decorators
 
 **At definition time** (standard Python):
+
 ```python
 class OrderService:
     @logged
@@ -97,6 +103,7 @@ class OrderService:
 ```
 
 **At runtime** (what this project does):
+
 ```python
 OrderService.list_orders = logged(timed(OrderService.list_orders))
 ```
@@ -111,13 +118,16 @@ Without `@wraps`, the wrapper function replaces the original function's name and
 def timed(func):
     def wrapper(*args, **kwargs):  # wrapper.__name__ is "wrapper", not "list_orders"
         ...
+
     return wrapper
+
 
 # With @wraps:
 def timed(func):
     @wraps(func)
     def wrapper(*args, **kwargs):  # wrapper.__name__ is "list_orders"
         ...
+
     return wrapper
 ```
 

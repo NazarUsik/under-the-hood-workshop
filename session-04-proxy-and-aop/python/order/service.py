@@ -1,7 +1,6 @@
-from typing import Optional
-
 from order.model import Order
 from order.repository import OrderRepository
+from typing import Optional
 
 
 # Notice: NO logging, NO timing code here. Decorators add it.

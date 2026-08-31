@@ -7,6 +7,8 @@ from menu.model import MenuItem
 from menu.repository import InMemoryMenuRepository, MenuRepository
 from menu.service import MenuService
 from proxy.decorators import logged, timed, audited
+from proxy.cached import cached
+from proxy.validated import validated_order_id
 
 app = FastAPI()
 
@@ -20,8 +22,8 @@ app = FastAPI()
 # -> Logging.before -> Timing.before -> Audit.before -> real -> Audit.after -> Timing.after -> Logging.after
 
 OrderService.list_orders = logged(timed(audited(OrderService.list_orders)))
-OrderService.find_order = logged(timed(audited(OrderService.find_order)))
-MenuService.list_items = logged(timed(MenuService.list_items))
+OrderService.find_order = logged(timed(audited(validated_order_id(OrderService.find_order))))
+MenuService.list_items = logged(timed(cached(MenuService.list_items)))
 
 
 # --- DI wiring ---

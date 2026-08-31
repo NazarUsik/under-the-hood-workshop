@@ -8,6 +8,7 @@ from functools import wraps
 
 def logged(func):
     """Logs method name, arguments, and return value."""
+
     @wraps(func)
     def wrapper(*args, **kwargs):
         # 'args[0]' is 'self' for methods
@@ -16,11 +17,13 @@ def logged(func):
         result = func(*args, **kwargs)
         print(f"[Logging] << {func_name} returned={result}")
         return result
+
     return wrapper
 
 
 def timed(func):
     """Measures and logs execution time."""
+
     @wraps(func)
     def wrapper(*args, **kwargs):
         func_name = func.__name__
@@ -29,11 +32,13 @@ def timed(func):
         duration_ms = (time.time() - start) * 1000
         print(f"[Timing] {func_name} took {duration_ms:.0f}ms")
         return result
+
     return wrapper
 
 
 def audited(func):
     """Logs operation start and completion/failure."""
+
     @wraps(func)
     def wrapper(*args, **kwargs):
         func_name = func.__name__
@@ -45,4 +50,5 @@ def audited(func):
         except Exception as e:
             print(f"[Audit] operation FAILED: {func_name} error={e}")
             raise
+
     return wrapper
