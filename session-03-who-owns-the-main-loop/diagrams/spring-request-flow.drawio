@@ -1,0 +1,89 @@
+<mxfile host="Electron">
+  <diagram id="wvQRMSRT_V75eMOx1y35" name="Page-1">
+    <mxGraphModel dx="1258" dy="671" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="gN5Z9OZhDuIhBh1QdJZ9-1" parent="1" style="whiteSpace=wrap;html=1;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="410" width="770" x="20" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="title" parent="1" style="text;html=1;fontSize=18;align=center;verticalAlign=middle;" value="&lt;b&gt;Spring Boot Request Flow: End to End&lt;/b&gt;" vertex="1">
+          <mxGeometry height="40" width="400" x="200" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="tomcat" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;" value="&lt;b&gt;1. Tomcat&lt;/b&gt;&lt;br&gt;Accept connection&lt;br&gt;Parse HTTP" vertex="1">
+          <mxGeometry height="70" width="140" x="40" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="filters" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" value="&lt;b&gt;2. Servlet Filters&lt;/b&gt;&lt;br&gt;Security, CORS,&lt;br&gt;Logging" vertex="1">
+          <mxGeometry height="70" width="140" x="230" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="dispatcher" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="&lt;b&gt;3. DispatcherServlet&lt;/b&gt;&lt;br&gt;Route matching&lt;br&gt;HandlerMapping" vertex="1">
+          <mxGeometry height="70" width="160" x="420" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="interceptor" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" value="&lt;b&gt;4. Interceptors&lt;/b&gt;&lt;br&gt;preHandle()" vertex="1">
+          <mxGeometry height="70" width="140" x="630" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="args" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="&lt;b&gt;5. Argument Resolution&lt;/b&gt;&lt;br&gt;@PathVariable, @RequestBody&lt;br&gt;Jackson deserialization" vertex="1">
+          <mxGeometry height="70" width="200" x="40" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="controller" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1;" value="&lt;b&gt;6. Your Controller&lt;/b&gt;&lt;br&gt;@GetMapping(&quot;/orders&quot;)&lt;br&gt;Business logic runs here" vertex="1">
+          <mxGeometry height="70" width="220" x="290" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="serialize" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" value="&lt;b&gt;7. Response Serialization&lt;/b&gt;&lt;br&gt;Jackson ObjectMapper&lt;br&gt;Object -&gt; JSON" vertex="1">
+          <mxGeometry height="70" width="200" x="570" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="interceptor2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" value="&lt;b&gt;8. Interceptors&lt;/b&gt;&lt;br&gt;postHandle()" vertex="1">
+          <mxGeometry height="70" width="140" x="40" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="filters2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" value="&lt;b&gt;9. Servlet Filters&lt;/b&gt;&lt;br&gt;(reverse order)&lt;br&gt;Log duration" vertex="1">
+          <mxGeometry height="70" width="140" x="230" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="tomcat2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;" value="&lt;b&gt;10. Tomcat&lt;/b&gt;&lt;br&gt;Write response bytes&lt;br&gt;Return thread to pool" vertex="1">
+          <mxGeometry height="70" width="160" x="420" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="client-res" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" value="&lt;b&gt;HTTP Response&lt;/b&gt;&lt;br&gt;200 OK + JSON" vertex="1">
+          <mxGeometry height="70" width="140" x="630" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="tomcat" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#666666;strokeWidth=2;flowAnimation=1;" target="filters">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="filters" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#9673a6;strokeWidth=2;flowAnimation=1;" target="dispatcher">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="dispatcher" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;strokeWidth=2;flowAnimation=1;" target="interceptor">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="interceptor" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#9673a6;strokeWidth=2;flowAnimation=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitDx=0;exitDy=0;" target="args">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="700" y="180" />
+              <mxPoint x="140" y="180" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="args" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;strokeWidth=2;flowAnimation=1;" target="controller">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="controller" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#b85450;strokeWidth=2;flowAnimation=1;" target="serialize">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="serialize" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;strokeWidth=2;flowAnimation=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitDx=0;exitDy=0;" target="interceptor2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="660" y="310" />
+              <mxPoint x="110" y="310" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="interceptor2" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#9673a6;strokeWidth=2;flowAnimation=1;" target="filters2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="filters2" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#9673a6;strokeWidth=2;flowAnimation=1;" target="tomcat2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="tomcat2" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#666666;strokeWidth=2;flowAnimation=1;" target="client-res">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
