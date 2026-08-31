@@ -1,4 +1,4 @@
-module coffeeshop-di
+module coffeeshop-chaos
 
         go 1.22
 

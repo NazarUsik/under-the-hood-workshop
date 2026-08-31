@@ -1,4 +1,4 @@
-module coffeeshop-di
+module coffeeshop-proxy-aop
 
         go 1.22
 

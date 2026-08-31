@@ -1,4 +1,4 @@
-module coffeeshop-di
+module coffeeshop-main-loop
 
         go 1.22
 
