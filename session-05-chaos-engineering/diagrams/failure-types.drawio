@@ -1,0 +1,55 @@
+<mxfile host="Electron">
+  <diagram id="gAFsMsYIihXzKju9xRY7" name="Page-1">
+    <mxGraphModel dx="1086" dy="579" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="zt0zYu6H7JSqVjh-ryA--1" parent="1" style="whiteSpace=wrap;html=1;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="290" width="780" x="10" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="title" parent="1" style="text;html=1;fontSize=18;align=center;verticalAlign=middle;" value="&lt;b&gt;Types of Failure Injection&lt;/b&gt;" vertex="1">
+          <mxGeometry height="40" width="400" x="180" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="crash" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;verticalAlign=middle;" value="&lt;b&gt;💥 Crash&lt;/b&gt;&lt;br&gt;Exception / Panic&lt;br&gt;&lt;i&gt;Service throws error&lt;/i&gt;" vertex="1">
+          <mxGeometry height="70" width="170" x="30" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="latency" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;verticalAlign=middle;" value="&lt;b&gt;🐌 Latency&lt;/b&gt;&lt;br&gt;Slow Response&lt;br&gt;&lt;i&gt;2-10 second delay&lt;/i&gt;" vertex="1">
+          <mxGeometry height="70" width="170" x="220" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="baddata" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;verticalAlign=middle;" value="&lt;b&gt;🗑️ Bad Data&lt;/b&gt;&lt;br&gt;Empty / Wrong Result&lt;br&gt;&lt;i&gt;Returns [] or null&lt;/i&gt;" vertex="1">
+          <mxGeometry height="70" width="170" x="410" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="partial" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;verticalAlign=middle;" value="&lt;b&gt;🎲 Partial Failure&lt;/b&gt;&lt;br&gt;Random Success/Fail&lt;br&gt;&lt;i&gt;50% calls fail&lt;/i&gt;" vertex="1">
+          <mxGeometry height="70" width="170" x="600" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="caller" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=13;" value="&lt;b&gt;Caller&lt;/b&gt;" vertex="1">
+          <mxGeometry height="40" width="100" x="350" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="q1" parent="1" style="text;html=1;fontSize=11;fontColor=#b85450;align=center;" value="Does caller&lt;br&gt;handle this?" vertex="1">
+          <mxGeometry height="30" width="170" x="30" y="155" as="geometry" />
+        </mxCell>
+        <mxCell id="q2" parent="1" style="text;html=1;fontSize=11;fontColor=#d6b656;align=center;" value="Does caller&lt;br&gt;time out?" vertex="1">
+          <mxGeometry height="30" width="170" x="220" y="155" as="geometry" />
+        </mxCell>
+        <mxCell id="q3" parent="1" style="text;html=1;fontSize=11;fontColor=#9673a6;align=center;" value="Does caller&lt;br&gt;check for empty?" vertex="1">
+          <mxGeometry height="30" width="170" x="410" y="155" as="geometry" />
+        </mxCell>
+        <mxCell id="q4" parent="1" style="text;html=1;fontSize=11;fontColor=#6c8ebf;align=center;" value="Is the system&lt;br&gt;consistent?" vertex="1">
+          <mxGeometry height="30" width="170" x="600" y="155" as="geometry" />
+        </mxCell>
+        <mxCell id="ec1" edge="1" parent="1" source="crash" style="strokeColor=#b85450;strokeWidth=2;flowAnimation=1;" target="caller">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ec2" edge="1" parent="1" source="latency" style="strokeColor=#d6b656;strokeWidth=2;flowAnimation=1;" target="caller">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ec3" edge="1" parent="1" source="baddata" style="strokeColor=#9673a6;strokeWidth=2;flowAnimation=1;" target="caller">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ec4" edge="1" parent="1" source="partial" style="strokeColor=#6c8ebf;strokeWidth=2;flowAnimation=1;" target="caller">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

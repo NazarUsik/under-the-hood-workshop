@@ -1,0 +1,70 @@
+<mxfile host="Electron">
+  <diagram id="SEtC-jtKCsASrznTEJ2l" name="Page-1">
+    <mxGraphModel dx="724" dy="386" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="0OfOPEDolYt0tkB2aS2N-1" parent="1" style="whiteSpace=wrap;html=1;fontColor=none;noLabel=1;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="360" width="500" x="70" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="title" parent="1" style="text;html=1;fontSize=18;align=center;verticalAlign=middle;" value="&lt;b&gt;Resilience Patterns&lt;/b&gt;" vertex="1">
+          <mxGeometry height="40" width="350" x="120" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="caller" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=13;" value="&lt;b&gt;Caller&lt;/b&gt;" vertex="1">
+          <mxGeometry height="50" width="100" x="85" y="155" as="geometry" />
+        </mxCell>
+        <mxCell id="timeout" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" value="&lt;b&gt;Timeout&lt;/b&gt;&lt;br&gt;max 3s" vertex="1">
+          <mxGeometry height="50" width="120" x="235" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="retry" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="&lt;b&gt;Retry&lt;/b&gt;&lt;br&gt;3 attempts" vertex="1">
+          <mxGeometry height="50" width="120" x="235" y="155" as="geometry" />
+        </mxCell>
+        <mxCell id="cb" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;" value="&lt;b&gt;Circuit Breaker&lt;/b&gt;&lt;br&gt;open after 5 fails" vertex="1">
+          <mxGeometry height="50" width="120" x="235" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="service" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="&lt;b&gt;KitchenService&lt;/b&gt;&lt;br&gt;(may fail)" vertex="1">
+          <mxGeometry height="50" width="150" x="405" y="155" as="geometry" />
+        </mxCell>
+        <mxCell id="fallback" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" value="&lt;b&gt;Fallback&lt;/b&gt;&lt;br&gt;return &quot;queued&quot;" vertex="1">
+          <mxGeometry height="50" width="150" x="405" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="caller" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#666666;strokeWidth=2;flowAnimation=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="timeout">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="200.03" y="180.03" />
+              <mxPoint x="200.03" y="105" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e1b" edge="1" parent="1" source="caller" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#666666;strokeWidth=2;flowAnimation=1;" target="retry">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1c" edge="1" parent="1" source="caller" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#666666;strokeWidth=2;flowAnimation=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="cb">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="200.03" y="180.03" />
+              <mxPoint x="200.03" y="255" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="timeout" style="strokeColor=#d6b656;strokeWidth=2;flowAnimation=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" target="service">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="retry" style="strokeColor=#6c8ebf;strokeWidth=2;flowAnimation=1;" target="service">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="cb" style="strokeColor=#9673a6;strokeWidth=2;flowAnimation=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" target="service">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="service" style="strokeColor=#82b366;strokeWidth=2;dashed=1;labelBackgroundColor=none;" target="fallback" value="on failure">
+          <mxGeometry relative="1" x="-0.6" y="30" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="stack-label" parent="1" style="text;html=1;fontSize=11;align=left;" value="&lt;i&gt;These patterns stack:&lt;br&gt;Timeout wraps Retry&lt;br&gt;wraps Circuit Breaker&lt;br&gt;wraps the service call&lt;/i&gt;" vertex="1">
+          <mxGeometry height="70" width="120" x="235" y="300" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
