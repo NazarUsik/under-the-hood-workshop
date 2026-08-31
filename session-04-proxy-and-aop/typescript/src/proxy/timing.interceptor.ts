@@ -1,0 +1,19 @@
+import {CallHandler, ExecutionContext, Injectable, NestInterceptor} from "@nestjs/common";
+import {Observable} from "rxjs";
+import {tap} from "rxjs/operators";
+
+// Timing interceptor: measures handler execution time.
+@Injectable()
+export class TimingInterceptor implements NestInterceptor {
+    intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
+        const handler = context.getHandler().name;
+        const start = Date.now();
+
+        return next.handle().pipe(
+            tap(() => {
+                const duration = Date.now() - start;
+                console.log(`[Timing] ${handler} took ${duration}ms`);
+            }),
+        );
+    }
+}
