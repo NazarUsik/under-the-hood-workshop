@@ -187,9 +187,7 @@ NestJS also supports method-level decorators that work like Spring's `@Transacti
 ```typescript
 @UseInterceptors(TimingInterceptor)
 @Get("/orders")
-listOrders()
-{ ...
-}
+listOrders() { ...}
 ```
 
 ### Go: Wrapper Functions and Middleware
